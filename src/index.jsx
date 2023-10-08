@@ -1,35 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./main.css"
-import Mv from "./Mv";
-import styled from "styled-components";
-import Home from "./Home.jsx";
-import cs from "./cs"
-import Fount from "./Fount";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import Login from "./login";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './main.css';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 
-
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"))
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    
-    <BrowserRouter>
-          <App/>
-      {/* <Login/> */}
-    </BrowserRouter>
-    
-    //  {/* <Home></Home>  */}
+  <BrowserRouter>
+    <App />
+    {/* <Login/> */}
+  </BrowserRouter>,
 
+  //  {/* <Home></Home>  */}
 
-    // {/* <Mv></Mv> */}
-    // {/* <cs></cs> */}
-    //  <Fount/> 
-
-
-   
-
- )
-
+  // {/* <Mv></Mv> */}
+  // {/* <cs></cs> */}
+  //  <Fount/>
+);

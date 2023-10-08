@@ -20,7 +20,9 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "lint": "npx eslint --fix",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +48,16 @@
     "antd-mobile": "^5.32.4",
     "autoprefixer": "^10.4.16",
     "axios": "^1.5.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "postcss": "^8.4.30",
+    "prettier": "^3.0.3",
     "react-router-dom": "^6.16.0",
     "styled-components": "^6.0.8",
     "tailwindcss": "^3.3.3"

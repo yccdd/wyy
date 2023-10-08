@@ -4,13 +4,9 @@
 // import Fount from './Fount'
 // import styled from 'styled-components'
 
-
-
-
 // function App () {
 //   return (
 
-  
 //       <div>
 //         <div >
 //         <Link to="/">首页</Link>
@@ -28,12 +24,11 @@
 //           <Route path='/Mv' element={<Mv/>}></Route>
 //         </Routes>
 //       </div>
-    
+
 //   )
 // }
- 
-// export default App
 
+// export default App
 
 // import React from "react";
 // import Home from "./Home";
@@ -59,8 +54,7 @@
 //         <Route path="/Home" element={<Home />} />
 //         <Route path="/Home" element={<Home />} />
 //         <Route path="/Home" element={<Home />} />
-     
-        
+
 //       </Routes>
 
 //       <div className="flex fixed left-0 bottom-0 right-0">
@@ -78,66 +72,69 @@
 //   );
 // }
 
+import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Icon } from '@iconify/react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import styled from 'styled-components';
+import Fount from './Fount';
+import Mv from './Mv';
+import Home from './Home';
+import Login from './login';
 
-
-import React from "react";
-import Home from "./Home"
-import Mv from "./Mv"
-import Fount from "./Fount";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-import { Icon } from "@iconify/react";
-import styled from "styled-components";
-import Login from "./login";
-
-let Div = styled.div`
-    .icon{
-        width: 5.866667vw;
-        height: 5.866667vw;
-    }
-
-`
+const Div = styled.div`
+  .icon {
+    width: 5.866667vw;
+    height: 5.866667vw;
+  }
+`;
 export default function App() {
   const navigate = useNavigate();
   const navList = [
-    { to: "/Home", title: "首页",icon:<Icon  className="icon" icon="ri:netease-cloud-music-fill" /> },
-    { to: "/Mv", title: "排行榜" ,icon:<Icon className="icon" icon="icon-park-outline:ranking" />},
-    { to: "/Login", title: "我的",icon:<Icon className="icon" icon="maki:music" /> },
-    { to: "/Depth", title: "关注" ,icon:<Icon className="icon" icon="fluent-mdl2:follow-user" />},
-    { to: "/Depth", title: "社区" ,icon:<Icon className="icon" icon="ph:wechat-logo" />},
+    {
+      to: '/Home',
+      title: '首页',
+      icon: <Icon className="icon" icon="ri:netease-cloud-music-fill" />,
+    },
+    {
+      to: '/Mv',
+      title: '排行榜',
+      icon: <Icon className="icon" icon="icon-park-outline:ranking" />,
+    },
+    { to: '/Login', title: '我的', icon: <Icon className="icon" icon="maki:music" /> },
+    { to: '/Depth', title: '关注', icon: <Icon className="icon" icon="fluent-mdl2:follow-user" /> },
+    { to: '/Depth', title: '社区', icon: <Icon className="icon" icon="ph:wechat-logo" /> },
   ];
 
- return (
+  return (
     <Div>
       <Routes>
         <Route path="/" element={<Navigate to="/Home" />} />
-     
-        <Route path="/Home" element={<Home />} >
-        <Route path="Fount" element={<Fount/>} />
+
+        <Route path="/Home" element={<Home />}>
+          <Route path="Fount" element={<Fount />} />
         </Route>
-        <Route path="/Fount" element={<Fount/>} />
-        <Route path="/Mv" element={<Mv/>} />
-        <Route path="/Login" element={<Login/>} />
-        
-       
-       
+        <Route path="/Fount" element={<Fount />} />
+        <Route path="/Mv" element={<Mv />} />
+        <Route path="/Login" element={<Login />} />
       </Routes>
 
       <div className="flex fixed left-0 bottom-0 right-0">
-        {navList.map(({ to, title ,icon}) => (
-          <div 
-            onClick={() =>{navigate(to) 
-            
-        } 
-                
-            }
+        {navList.map(({ to, title, icon }) => (
+          // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+          <Div
+            onClick={() => {
+              navigate(to);
+            }}
             className="wd flex-1 text-center border-t-[1px] leading-10 text-[14px]"
             key={to}
-            style={{width:"20%", textAlign:"center"}}
+            style={{ width: '20%', textAlign: 'center' }}
           >
-            <div style={{display:"flex",justifyContent:"center"}}>{icon}</div>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>{icon}</div>
             <p>{title}</p>
-          </div>
+          </Div>
         ))}
       </div>
     </Div>

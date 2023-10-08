@@ -1,46 +1,43 @@
-import React from 'react'
-import { useState ,useEffect} from 'react'
-import axios from 'axios'
-import { Button, Space, Swiper, Toast } from 'antd-mobile'
-import { SearchBarRef } from 'antd-mobile/es/components/search-bar'
-import { SwiperRef } from 'antd-mobile/es/components/swiper'
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useState, useEffect } from 'react';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
+import axios from 'axios';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Swiper } from 'antd-mobile';
 
-function Carousel (){
+function Carousel() {
+  const [list, setList] = useState();
 
+  useEffect(() => {
+    axios
+      .get('https://netease-cloud-music-api-five-roan-88.vercel.app/homepage/block/page')
+      .then((res) => {
+        // console.log(res.data.data.blocks[0].extInfo.banners);
+        setList(res.data.data.blocks[0].extInfo.banners);
+      });
+  }, []);
 
-    let [list,setList] = useState()
-
-    useEffect(()=>{
-    
-            axios.get(
-                    "https://netease-cloud-music-api-five-roan-88.vercel.app/homepage/block/page"
-                ).then((res)=>{
-                    // console.log(res.data.data.blocks[0].extInfo.banners);
-                    setList(res.data.data.blocks[0].extInfo.banners)
-                })
-
-                
-    },[])
-    
-    return  <Swiper autoplay>
-
-        {list && list.map((item, index) => (
-    <Swiper.Item key={index} style={{width:"90%", margin:"auto"}}>
-        <div
-        style={{ backgroundImage: `url(${item.pic})` ,height:"36vw",backgroundSize:"100%",borderRadius:"2.666667vw"} }
-        onClick={() => {
-        }}
-        >
-        </div>
-    </Swiper.Item>
-    ))}
-
+  return (
+    <Swiper autoplay>
+      {list &&
+        list.map((item, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Swiper.Item key={index} style={{ width: '90%', margin: 'auto' }}>
+            <div
+              style={{
+                backgroundImage: `url(${item.pic})`,
+                height: '36vw',
+                backgroundSize: '100%',
+                borderRadius: '2.666667vw',
+              }}
+              onClick={() => {}}
+            />
+          </Swiper.Item>
+        ))}
     </Swiper>
-  
-
-
+  );
 }
 
-
-export default Carousel
+export default Carousel;
